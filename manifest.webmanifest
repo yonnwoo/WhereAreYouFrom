@@ -1,0 +1,17 @@
+{
+  "name": "어디서 왔어요? — Where Are You From?",
+  "short_name": "Where Are You From?",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "302x302",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
