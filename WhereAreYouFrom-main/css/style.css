@@ -1,0 +1,221 @@
+/* 1. 색상 변수 정의 (기본 라이트 모드 상태) */
+:root {
+    --bg-color: #ffffff;      /* 기본 배경: 하양 */
+    --text-black: #000000;    /* 기본 검은 글자 -> 라이트모드에선 검은색 */
+    --text-blue: #0000ff;     /* 기본 파란 글자 -> 라이트모드에선 파란색 */
+}
+
+/* 2. 다크 모드 활성화 시 바뀔 색상 */
+body.dark-mode {
+    --bg-color: #000000;      /* 다크모드 배경: 검정 */
+    --text-black: #ffffff;    /* 검은 글자 -> 하얀 글자로 변경 */
+    --text-blue: #ffff00;     /* 파란 글자 -> 노란 글자로 변경 */
+}
+
+/* 3. 기존 스타일 요소에 변수 적용하기 (예시) */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-black);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
+}
+
+/* 파란 글자가 들어가던 클래스나 태그에 적용 */
+.blue-text-class { 
+    color: var(--text-blue); 
+}
+
+
+::selection {
+  background-color: var(--select-color);
+  color: var(--text-color);
+}
+
+
+a {
+    color: var(--text-blue);
+    text-decoration: underline 1px var(--text-blue);
+    display: inline-block;
+    z-index: 2;
+}
+
+.header-container {
+  /* 🔥 1단계: Flexbox 사용 선언 */
+  display: flex; 
+  
+  /* 🔥 2단계: 아이템들을 컨테이너 양 끝으로 밀어내기 */
+  justify-content: space-between; 
+  
+  /* (선택) 수직(위아래) 중앙 정렬 */
+  align-items: center; 
+}
+
+header {
+    color: 000;
+    font-size: 12px;
+    text-align: justify;
+    padding: 0px;
+}
+
+.article-container {
+  min-height: 800px; /* 글이 너무 짧을 때 최소 높이 */
+  max-height: 800px; /* 글이 아무리 길어도 800px까지만 커짐 */
+  overflow-y: auto;
+  box-sizing: border-box; /* 3. 패딩과 테두리를 높이에 포함 (선택이지만 권장) */
+  display: flex;
+  justify-content: space-around; /* 단을 오른쪽으로 정렬 */
+
+  
+  /* 디자인을 위한 추가 속성 (예시) */
+  color: var(--text-black);
+  font-size: 14.4px;
+  line-height: 1.7;
+}
+
+article {
+  padding: 2px;
+}
+
+/* 🔥 1. 첫 번째 단의 설정 (유연하게 남은 공간 차지) */
+article:first-child {
+  flex: 1;
+}
+
+
+/* 🔥 2. 첫 번째를 제외한 나머지 모든 단 (크기 완전 고정) */
+article:not(:first-child):not(:last-child) {
+  flex: 1;
+  word-break: keep-all; 
+  overflow-wrap: break-word; /* 글자가 길어도 단 너비가 억지로 늘어나지 않게 방지 */
+}
+
+hr {    
+    border: none;
+    border-top: 1px dashed var(--text-blue); /* dashed: 긴 점선, dotted: 짧은 점선 */
+}
+.footer {
+
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+    animation: jump 3s infinite alternate;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+img {
+  position: fixed;
+  bottom: 3%;
+  right: 0%;
+  filter: grayscale(0%) contrast(100%) brightness(1.2);
+  opacity: 0.8;
+  z-index: 0;
+}
+img:hover {
+  opacity: 0.2; 
+}
+.fill-blank-container {
+  /* 🔥 핵심 1: 가로로 나란히 배치하기 위한 flex */
+  display: flex;
+  
+  /* 텍스트와 선의 수직 높이를 아래쪽(밑줄 위치)으로 맞춥니다 */
+  align-items: flex-end; 
+  
+  /* 글자와 선 사이의 간격 */
+  gap: 10px; 
+  
+  /* 컨테이너 전체 너비 설정 (필요에 따라 조절) */
+  width: 100%; 
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  /* 텍스트가 줄바꿈되지 않도록 방지 */
+  white-space: nowrap; 
+}
+
+.form-item {
+  display: flex;
+  align-items: center; /* 이번엔 세로 중앙 정렬 예시 */
+  gap: 0;
+  width: 100%;
+}
+.flexible-line-side {
+  /* 두 선 모두에게 flex-grow: 1을 주면, 
+     남은 공간을 반반씩(1:1 비율) 똑같이 나누어 가지며 늘어납니다. */
+  flex-grow: 90; 
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--text-blue);
+  height: 10px;
+  transform: translateY(4px);
+  z-index: -1;
+}
+.flexible-line {
+  /* 두 선 모두에게 flex-grow: 1을 주면, 
+     남은 공간을 반반씩(1:1 비율) 똑같이 나누어 가지며 늘어납니다. */
+     flex-grow: 1; 
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--text-blue);
+  height: 10px;
+  transform: translateY(4px);
+}
+a .footer {
+    gap: 20px;
+    display: flex;
+}
+.spacer {
+  height: 1000px; /* 픽셀로 엄청나게 큰 값을 주거나 */
+  /* height: 300vh; /* 브라우저 화면 높이의 3배(300%)를 줄 수도 있습니다. */
+}
+.background-iframe {
+    position: fixed;       /* 화면에 고정 (스크롤해도 위치 유지) */
+    top: 0;
+    left: 0;
+    width: 100vw;          /* 화면 너비 100% */
+    height: 100vh;         /* 화면 높이 100% */
+    z-index: 0;           /* 다른 콘텐츠들보다 완전히 뒤로 배치 */
+    border: none;          /* 테두리 제거 */
+    pointer-events: 1; /* iframe이 클릭 등 이벤트를 받도록 설정 (선택사항) */
+    opacity: 0.3;          /* 선택사항: 배경이 너무 튀지 않게 투명도 조절 */
+    filter: grayscale(100%) contrast(100%) brightness(1); /* 선택사항: 흑백, 명암, 밝기, 블러, 세피아 효과 추가 */
+  }
+
+  /* --- 인쇄 전용 스타일 --- */
+@media print {
+  /* 1. 용지 방향을 가로(Landscape)로 변경하여 여러 단이 들어갈 가로 폭 확보 */
+  @page {
+    size: A3 landscape;
+    margin: 10mm 0 10mm 5mm;
+  }
+
+  /* 3. 스크롤 및 고정 높이 제한 해제 (인쇄 시 내용이 잘리지 않도록) */
+  .article-container {
+    font-size: 10pt !important; 
+    line-height: 1.6 !important;
+  }
+  a {
+    text-decoration: underline 0.5pt var(--text-blue) !important;
+  }
+  article {
+  border-left: 0.2pt dotted lightgrey;
+}
+  .flexible-line, 
+  .flexible-line-side {
+    border-bottom: solid 0.5pt var(--text-blue) !important; /* 0.5pt로 얇게 설정. */
+  }
+}
