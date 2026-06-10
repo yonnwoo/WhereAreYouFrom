@@ -18,8 +18,8 @@
 
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/random-space.js" defer></script>
-  <script src="../js/hover-popup.js" defer></script>
   <script src="../js/dark-mode.js" defer></script>
+  <script src="../js/language-mode.js"></script>
 </head>
 <body id="dynamic-body">
   <div class="content">
@@ -55,55 +55,122 @@
     <hr>
     <iframe name="bgViewer" class="background-iframe"></iframe>
     <main class="article-container">
-      <article>
+<!-- 이름 -->
+      <article class="lang-ko">
         <br>
         (진영)
         <br>
-        </article>
-      <article>
+      </article>
+      <article class="lang-en">
+        <br>
+        (Jinyoung)
+        <br>
+      </article>
+
+      <!-- Q1 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>Q1.</small> 어디서 오셨나요. <br>거기는 어떤 곳인가요?
-        </article>
-        <article>
-          <div class="random-space"></div>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>Q1.</small> Where are you from? <br>What kind of place is it?
+      </article>
+
+      <!-- A1 -->
+      <article class="lang-ko">
+        <div class="random-space"></div>
         <small>A1.</small> <a href="https://ko.wikipedia.org/wiki/마포구?useskin=vector" target="bgViewer">서울 마포구.</a> <br>번화하지 않은 조용한 동네
       </article>
-      <article>
+      <article class="lang-en">
         <div class="random-space"></div>
-       <small>Q2.</small> 그곳에서는 무엇이 보이나요?
-        </article>
-        <article>
+        <small>A1.</small> <a href="https://en.wikipedia.org/wiki/Mapo_District?useskin=vector" target="bgViewer">Mapo-gu, Seoul.</a> <br>A quiet, uncrowded neighborhood.
+      </article>
+      
+      <!-- Q2 -->
+      <article class="lang-ko">
+        <div class="random-space"></div>
+        <small>Q2.</small> 그곳에서는 무엇이 보이나요?
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>Q2.</small> What do you see there?
+      </article>
+
+      <!-- A2 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>A2.</small> 나무, 고속도로, 차, <a href="https://ko.wikipedia.org/wiki/밤섬?useskin=vector" target="bgViewer">밤섬</a>
       </article>
-      <article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>A2.</small> Trees, highways, cars, and <a href="https://en.wikipedia.org/wiki/Bamseom?useskin=vector" target="bgViewer">Bamseom</a>.
+      </article>
+      
+      <!-- Q3 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>Q3.</small> 무엇이 들리나요?
-        </article>
-        <article>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>Q3.</small> What do you hear?
+      </article>
+
+      <!-- A3 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>A3.</small> 차소리, 공원의 고양이 소리 🐈
-        </article>
-        <article>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>A3.</small> The sound of cars, and cats in the park 🐈
+      </article>
+      
+      <!-- Q4 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>Q4.</small> 어떤 냄새가 나나요?
-        </article>
-        <article>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>Q4.</small> What does it smell like?
+      </article>
+
+      <!-- A4 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>A4.</small> 나무냄새🌳
-        </article>
-        <article>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>A4.</small> The smell of trees 🌳
+      </article>
+      
+      <!-- Q5 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>Q5.</small> 자주 가는 곳이 있나요?
-        </article>
-        <article>
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>Q5.</small> Is there a place you go often?
+      </article>
+
+      <!-- A5 -->
+      <article class="lang-ko">
         <div class="random-space"></div>
         <small>A5.</small> 집 근처 공원.
-        </article>
-        <article style="opacity:0; flex:0.3; z-index:-1;">
+      </article>
+      <article class="lang-en">
+        <div class="random-space"></div>
+        <small>A5.</small> A park near my house.
+      </article>
+
+      <!-- 여백(구분선) 요소: 언어에 상관없이 유지되도록 클래스를 부여하지 않았습니다 -->
+      <article style="opacity:0; flex:0.3; z-index:-1;">
         -------------------
-        </article>
-    <img class="pic" src="../images/jejubada.jpg"/>
+      </article>
 </main>
 
 <div class="form-item">
