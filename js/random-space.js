@@ -6,7 +6,7 @@ function generateRandomBreaks() {
   spaces.forEach(function(space) {
     
     // 각 구역마다 서로 다른 랜덤 숫자를 뽑습니다.
-    const randomCount = Math.floor(Math.random() * 17) + 1;
+    const randomCount = Math.floor(Math.random() * 25) + 1;
     const brTags = "<br>".repeat(randomCount);
     
     // 현재 작업 중인 구역에 <br>을 집어넣습니다.

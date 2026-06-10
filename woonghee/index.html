@@ -16,9 +16,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Elliott Tour">
 
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/random-space.js" defer></script>
-  <script src="js/dark-mode.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/random-space.js" defer></script>
+  <script src="../js/hover-popup.js" defer></script>
+  <script src="../js/dark-mode.js" defer></script>
 </head>
 <body id="dynamic-body">
   <div class="content">
@@ -53,18 +54,63 @@
     </header>
     <hr>
     <iframe name="bgViewer" class="background-iframe"></iframe>
-    <main class="article-container" style="text-align: center;align-items: center; line-height: 2.5;">
-      <article style="font-size: 14px;">
+    <main class="article-container">
+      <article>
         <br>
-제주도에서 밤에 바라본 바다의 수평선에는 <br>어선의 불빛이 하늘의 별처럼 수놓아져 있었는데요. <br>그 불빛이 각자가 떠나온 고향처럼 보였습니다. <br>그래서 우연히 만난 14명의 친구들에게 <br>떠나온 고향에 대한 5가지 질문과 대화를 나누었습니다. <small>(별 위에 마우스를 올려보세요. w.i.p.)</small>
-    <img class="pic" src="images/jejubada.jpg"/>
+        (웅희)
+        <br>
+        </article>
+      <article>
+        <div class="random-space"></div>
+        <small>Q1.</small> 어디서 오셨나요. <br>거기는 어떤 곳인가요?
+        </article>
+        <article>
+          <div class="random-space"></div>
+        <small>A1.</small> 경기도 <a href="https://ko.wikipedia.org/wiki/제주시?useskin=vector" target="bgViewer">파주시.</a> <br>백색소음, 정적인 곳.
+      </article>
+      <article>
+        <div class="random-space"></div>
+       <small>Q2.</small> 그곳에서는 무엇이 보이나요?
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>A2.</small> 늪지대의 새와 맹꽁이들, 파란 하늘.
+      </article>
+      <article>
+        <div class="random-space"></div>
+        <small>Q3.</small> 무엇이 들리나요?
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>A3.</small> 맹꽁이 개구리, 뻐꾸기, 시냇물.
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>Q4.</small> 어떤 냄새가 나나요?
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>A4.</small> 종이냄새, 프린터잉크, 물냄새.
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>Q5.</small> 자주 가는 곳이 있나요?
+        </article>
+        <article>
+        <div class="random-space"></div>
+        <small>A5.</small> 주말에 뒷산,<br>심학산에 자주 아침등산 다녀와요.
+        </article>
+        <article style="opacity:0; flex:0.3; z-index:-1;">
+        -------------------
+        </article>
+    <img class="pic" src="../images/jejubada.jpg"/>
 </main>
 
 <div class="form-item">
   <div class="flexible-line-side"></div>
   <abbr title=앨리엇,&nbsp;하와이><a href="../elliott">*</a></abbr> 
   <div class="flexible-line"></div>
-  <abbr title=웅희,&nbsp;경기도&nbsp;파주><a href="../woonghee">*</a></abbr>
+  <abbr title=웅희,&nbsp;경기도&nbsp;파주><b><a href="../woonghee">*</a></b></abbr>
   <div class="flexible-line"></div>
   <abbr title=키키,&nbsp;서울&nbsp;마곡동><a href="../kiki">*</a></abbr>
   <div class="flexible-line"></div>
@@ -92,10 +138,11 @@
   <div class="flexible-line-side"></div> 
 </div>
 <footer class="footer">
-    <p>Copyright &copy; This site originated from the Elliot Tour held from May 16 to 17.</p>
+     <p>Copyright &copy; This site originated from the Elliot Tour held from May 16 to 17.</p>
     <span> - </span><a href="../index.html">home</a>
     <span> - </span><a href="../index.html">한 / Eng</a><span> - </span>
     <a href="javascript:void(0)" id="darkModeToggle" class="dark-mode-btn">낮 / 밤</a><span> - </span>
     </footer>
+</div>
 </body>
 </html>

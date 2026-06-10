@@ -3,12 +3,14 @@
     --bg-color: #ffffff;      /* 기본 배경: 하양 */
     --text-black: #000000;    /* 기본 검은 글자 -> 라이트모드에선 검은색 */
     --text-blue: #0000ff;     /* 기본 파란 글자 -> 라이트모드에선 파란색 */
+    --line-color: #000000;    /* 기본 선 색상 */
 }
 
 /* 2. 다크 모드 활성화 시 바뀔 색상 */
 body.dark-mode {
     --bg-color: #000000;      /* 다크모드 배경: 검정 */
     --text-black: #ffffff;    /* 검은 글자 -> 하얀 글자로 변경 */
+    --line-color: #ffff00;    /* 선 색상도 하얀색으로 변경 */
     --text-blue: #ffff00;     /* 파란 글자 -> 노란 글자로 변경 */
 }
 
@@ -16,7 +18,7 @@ body.dark-mode {
 body {
     background-color: var(--bg-color);
     color: var(--text-black);
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR','Noto Emoji', sans-serif;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
@@ -74,14 +76,15 @@ header {
   line-height: 1.7;
 }
 
-/* 🔥 1. 첫 번째 단의 설정 (유연하게 남은 공간 차지) */
-article:first-child {
-  flex: 0.3;
+article {
+  padding: 2px;
 }
 
-article:last-child {
- flex: 0.3;
+/* 🔥 1. 첫 번째 단의 설정 (유연하게 남은 공간 차지) */
+article:first-child {
+  flex: 1;
 }
+
 
 /* 🔥 2. 첫 번째를 제외한 나머지 모든 단 (크기 완전 고정) */
 article:not(:first-child):not(:last-child) {
@@ -91,15 +94,15 @@ article:not(:first-child):not(:last-child) {
 }
 
 hr {    
-    border: dashed 1px var(--text-blue); ;
-    padding: 0;
-    margin: 0;
+    border: none;
+    border-top: 1px dashed var(--line-color); /* dashed: 긴 점선, dotted: 짧은 점선 */
 }
 .footer {
 
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
-  margin: 0;
+  margin: 30px 20px;
+  text-align: right;
 }
 
 a {
@@ -116,9 +119,10 @@ a {
 }
 
 img {
+  width: 21.5%;
   position: fixed;
-  bottom: 3%;
-  right: 0%;
+  bottom: 13%;
+  left: 0%;
   filter: grayscale(0%) contrast(100%) brightness(1.2);
   opacity: 0.8;
   z-index: 0;
@@ -159,7 +163,7 @@ img:hover {
   flex-grow: 90; 
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid var(--text-blue);
+  border-bottom: 1px dashed var(--line-color);
   height: 10px;
   transform: translateY(4px);
   z-index: -1;
@@ -170,7 +174,7 @@ img:hover {
      flex-grow: 1; 
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid var(--text-blue);
+  border-bottom: 1px dashed var(--line-color);
   height: 10px;
   transform: translateY(4px);
 }
@@ -194,3 +198,39 @@ a .footer {
     opacity: 0.3;          /* 선택사항: 배경이 너무 튀지 않게 투명도 조절 */
     filter: grayscale(100%) contrast(100%) brightness(1); /* 선택사항: 흑백, 명암, 밝기, 블러, 세피아 효과 추가 */
   }
+
+  /* --- 인쇄 전용 스타일 --- */
+@media print {
+  /* 1. 용지 방향을 가로(Landscape)로 변경하여 여러 단이 들어갈 가로 폭 확보 */
+  @page {
+    size: A3 landscape;
+    margin: 10mm 0 10mm 5mm;
+  }
+
+  /* 3. 스크롤 및 고정 높이 제한 해제 (인쇄 시 내용이 잘리지 않도록) */
+  .article-container {
+    font-size: 9.5pt !important; 
+    line-height: 1.7 !important;
+  }
+  a {
+    text-decoration: underline 0.5pt var(--text-blue) !important;
+  }
+  article {
+  border-left: 0.2pt dotted lightgrey;
+}
+  .flexible-line, 
+  .flexible-line-side {
+    border-bottom: dashed 0.5pt var(--text-black) !important; /* 0.5pt로 얇게 설정. */
+  }
+  img {
+    width: 19%;
+    bottom: 16.5%;
+    left: -1.7%;
+  }
+  .footer {
+    font-size: 7pt;
+    line-height: 1.5;
+    margin: 0mm 5mm 10mm 5mm;
+    text-align: right;
+  }
+}
