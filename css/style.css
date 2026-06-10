@@ -198,7 +198,21 @@ a .footer {
     opacity: 0.3;          /* 선택사항: 배경이 너무 튀지 않게 투명도 조절 */
     filter: grayscale(100%) contrast(100%) brightness(1); /* 선택사항: 흑백, 명암, 밝기, 블러, 세피아 효과 추가 */
   }
+/* 기본 상태: 한국어 보임, 영어 숨김 */
+.lang-en {
+    display: none;
+}
+.lang-ko {
+    display: block; /* 또는 상황에 따라 inline, inline-block 사용 */
+}
 
+/* 영어 모드일 때: 한국어 숨김, 영어 보임 */
+body.english-mode .lang-ko {
+    display: none;
+}
+body.english-mode .lang-en {
+    display: block; /* 또는 상황에 따라 inline, inline-block 사용 */
+}
   /* --- 인쇄 전용 스타일 --- */
 @media print {
   /* 1. 용지 방향을 가로(Landscape)로 변경하여 여러 단이 들어갈 가로 폭 확보 */
