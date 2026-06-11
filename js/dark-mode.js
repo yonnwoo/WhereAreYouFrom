@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentTheme === 'dark') {
     // 사용자가 이전에 명시적으로 다크모드를 선택했던 경우
     body.classList.add('dark-mode');
-    if (toggleLink) toggleLink.textContent = 'light-mode';
+    if (toggleLink) toggleLink.textContent = 'Light-mode';
   } else if (currentTheme === 'light') {
     // 사용자가 이전에 명시적으로 라이트모드를 선택했던 경우
     body.classList.remove('dark-mode');
-    if (toggleLink) toggleLink.textContent = 'dark-mode';
+    if (toggleLink) toggleLink.textContent = 'Dark-mode';
   } else {
     // 2. 저장된 설정이 없는 경우 (첫 방문 시) 시간에 따라 기본 테마 지정
     const currentHour = new Date().getHours();
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isNight) {
       body.classList.add('dark-mode');
-      if (toggleLink) toggleLink.textContent = 'light-mode';
+      if (toggleLink) toggleLink.textContent = 'Light-mode';
     } else {
       // 낮 시간에는 기본 라이트모드 유지
-      if (toggleLink) toggleLink.textContent = 'dark-mode';
+      if (toggleLink) toggleLink.textContent = 'Dark-mode';
     }
   }
 
@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // 상태 변경 후 로컬 스토리지에 값 저장 및 버튼 텍스트 변경
       if (body.classList.contains('dark-mode')) {
         localStorage.setItem('theme', 'dark');
-        toggleLink.textContent = 'light-mode';
+        toggleLink.textContent = 'Light-mode';
       } else {
         localStorage.setItem('theme', 'light');
-        toggleLink.textContent = 'dark-mode';
+        toggleLink.textContent = 'Dark-mode';
       }
     });
   }

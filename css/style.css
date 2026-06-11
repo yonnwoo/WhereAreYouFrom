@@ -78,21 +78,17 @@ header {
 
 article {
   padding: 2px;
-}
-
-/* 🔥 1. 첫 번째 단의 설정 (유연하게 남은 공간 차지) */
-article:first-child {
-  flex: 1;
-}
-
-
-/* 🔥 2. 첫 번째를 제외한 나머지 모든 단 (크기 완전 고정) */
-article:not(:first-child):not(:last-child) {
   flex: 1;
   word-break: keep-all; 
   overflow-wrap: break-word; /* 글자가 길어도 단 너비가 억지로 늘어나지 않게 방지 */
 }
 
+article:last-child {
+  flex: 0; /* 마지막 단은 글이 짧아도 너비가 늘어나지 않도록 고정 */
+}
+article.home {
+  flex: 1;
+}
 hr {    
     border: none;
     border-top: 1px dashed var(--line-color); /* dashed: 긴 점선, dotted: 짧은 점선 */
@@ -164,7 +160,7 @@ img:hover {
   display: flex;
   gap: 10px;
   border-bottom: 1px dashed var(--line-color);
-  height: 10px;
+  height: 9px;
   transform: translateY(4px);
   z-index: -1;
 }
@@ -175,7 +171,7 @@ img:hover {
   display: flex;
   gap: 10px;
   border-bottom: 1px dashed var(--line-color);
-  height: 10px;
+  height: 9px;
   transform: translateY(4px);
 }
 a .footer {
@@ -228,9 +224,13 @@ body.english-mode .lang-en {
   }
   a {
     text-decoration: underline 0.5pt var(--text-blue) !important;
+    animation: none !important; /* 인쇄 시 애니메이션 제거 */
   }
   article {
   border-left: 0.2pt dotted lightgrey;
+}
+article:last-child {
+  flex: 1; /* 마지막 단은 글이 짧아도 너비가 늘어나지 않도록 고정 */
 }
   .flexible-line, 
   .flexible-line-side {
@@ -244,7 +244,7 @@ body.english-mode .lang-en {
   .footer {
     font-size: 7pt;
     line-height: 1.5;
-    margin: 0mm 5mm 10mm 5mm;
+    margin: 5mm 5mm 10mm 5mm;
     text-align: right;
   }
 }
