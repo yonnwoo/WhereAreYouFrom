@@ -209,6 +209,8 @@ body.english-mode .lang-ko {
 body.english-mode .lang-en {
     display: block; /* 또는 상황에 따라 inline, inline-block 사용 */
 }
+
+
   /* --- 인쇄 전용 스타일 --- */
 @media print {
   /* 1. 용지 방향을 가로(Landscape)로 변경하여 여러 단이 들어갈 가로 폭 확보 */
