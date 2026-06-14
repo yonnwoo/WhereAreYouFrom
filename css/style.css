@@ -62,8 +62,8 @@ header {
 }
 
 .article-container {
-  min-height: 720px; /* 글이 너무 짧을 때 최소 높이 */
-  max-height: 720px; /* 글이 아무리 길어도 800px까지만 커짐 */
+  min-height: 700px; /* 글이 너무 짧을 때 최소 높이 */
+  max-height: 700px; /* 글이 아무리 길어도 800px까지만 커짐 */
   overflow-y: auto;
   box-sizing: border-box; /* 3. 패딩과 테두리를 높이에 포함 (선택이지만 권장) */
   display: flex;
