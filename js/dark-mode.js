@@ -59,9 +59,30 @@ document.addEventListener("DOMContentLoaded", function() {
   if (window.matchMedia("(hover: none)").matches) {
     const abbrElements = document.querySelectorAll('abbr[title]');
     
-    // 모든 abbr 태그에 tabindex="0"을 부여하여 모바일 터치 포커스를 활성화
     abbrElements.forEach(function(abbr) {
+      // 1. 포커스를 받을 수 있도록 속성 추가
       abbr.setAttribute('tabindex', '0');
+      
+      // 2. 터치(클릭) 이벤트 제어
+      abbr.addEventListener('click', function(e) {
+        // 'data-clicked' 상태가 true가 아니라면 (즉, 처음 터치한 거라면)
+        if (abbr.getAttribute('data-clicked') !== 'true') {
+          e.preventDefault(); // <a> 태그의 기본 동작(링크 이동)을 강제로 막음
+          
+          // 혹시 다른 툴팁이 열려있다면 모두 닫힘 상태로 초기화
+          document.querySelectorAll('abbr[title]').forEach(el => el.setAttribute('data-clicked', 'false'));
+          
+          // 현재 터치한 요소를 '열림' 상태로 변경하고 포커스 주기
+          abbr.setAttribute('data-clicked', 'true');
+          abbr.focus(); 
+        } 
+        // 이미 'true'라면 (두 번째 터치) e.preventDefault()를 안 하므로 정상적으로 링크로 이동!
+      });
+
+      // 3. 빈 화면을 터치해서 포커스가 풀리면(blur) 다시 초기 상태로 되돌림
+      abbr.addEventListener('blur', function() {
+        abbr.setAttribute('data-clicked', 'false');
+      });
     });
   }
 });
