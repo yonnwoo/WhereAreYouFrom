@@ -262,7 +262,7 @@ article:first-child {
   }
   /* 각 article이 너비의 1/3씩(약 33.33%) 차지하도록 설정하여 한 줄에 3개씩 배치 */
   .article-container article {
-    flex: 0 0 calc(33.333%); /* 여백을 고려해 너비 설정 (padding 2px * 2) */
+    flex: 0 0 calc(25%);
     box-sizing: border-box; /* 패딩을 너비에 포함 */
   }
   article:first-child {
