@@ -6,7 +6,7 @@ function generateRandomBreaks() {
   const isMobile = window.innerWidth <= 768;
   
   // 3. 모바일이면 최대 10개, PC면 최대 25개로 설정합니다. (숫자는 자유롭게 변경하세요)
-  const maxCount = isMobile ? 8 : 25;
+  const maxCount = isMobile ? 10 : 25;
   
   // 4. 찾아낸 각각의 구역(space)마다 반복해서(forEach) 랜덤 <br>을 넣어줍니다.
   spaces.forEach(function(space) {
