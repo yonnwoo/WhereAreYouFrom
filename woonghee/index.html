@@ -21,6 +21,24 @@
   <script src="../js/language-mode.js"></script>
   <script src="../js/dark-mode.js" defer></script>
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 화면 너비가 768px 이하(모바일)인지 확인
+  if (window.innerWidth <= 768) {
+    const iframes = document.querySelectorAll('iframe');
+    
+    iframes.forEach(function(iframe) {
+      let currentSrc = iframe.getAttribute('src');
+      
+      // useskin=vector를 모바일 전용 스킨인 useskin=minerva 로 완전히 교체
+      if (currentSrc && currentSrc.includes('useskin=vector')) {
+        let newSrc = currentSrc.replace('useskin=vector', 'useskin=minerva');
+        iframe.setAttribute('src', newSrc);
+      }
+    });
+  }
+});
+</script>
 <body id="dynamic-body">
   <div class="content">
     <header class="header-container">
