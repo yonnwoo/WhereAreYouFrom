@@ -62,8 +62,8 @@ header {
 }
 
 .article-container {
-  min-height: 800px; /* 글이 너무 짧을 때 최소 높이 */
-  max-height: 800px; /* 글이 아무리 길어도 800px까지만 커짐 */
+  min-height: 720px; /* 글이 너무 짧을 때 최소 높이 */
+  max-height: 720px; /* 글이 아무리 길어도 800px까지만 커짐 */
   overflow-y: auto;
   box-sizing: border-box; /* 3. 패딩과 테두리를 높이에 포함 (선택이지만 권장) */
   display: flex;
@@ -83,7 +83,7 @@ article {
   overflow-wrap: break-word; /* 글자가 길어도 단 너비가 억지로 늘어나지 않게 방지 */
 }
 
-article:last-child {
+article:first-child {
   flex: 0; /* 마지막 단은 글이 짧아도 너비가 늘어나지 않도록 고정 */
 }
 article.home {
@@ -231,7 +231,7 @@ body.english-mode .lang-en {
   article {
   border-left: 0.2pt dotted lightgrey;
 }
-article:last-child {
+article:first-child {
   flex: 1; /* 마지막 단은 글이 짧아도 너비가 늘어나지 않도록 고정 */
 }
   .flexible-line, 
