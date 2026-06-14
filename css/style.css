@@ -256,7 +256,7 @@ article:first-child {
   .article-container {
     flex-wrap: wrap;       /* 자식 요소들이 넘치면 다음 줄로 넘어가도록 설정 */
     justify-content: flex-start; /* 가로 배열 시작 지점 맞추기 */
-    min-height: auto;      /* 모바일에서는 최소 높이를 해제하거나 재설정 */
+    min-height: 60vh;      /* 모바일에서는 최소 높이를 해제하거나 재설정 */
     max-height: none;      /* 최대 높이 제한 해제 */
     margin-bottom: 50px;
   }
