@@ -238,11 +238,7 @@ article:first-child {
   .flexible-line-side {
     border-bottom: dashed 0.5pt var(--text-black) !important; /* 0.5pt로 얇게 설정. */
   }
-  img {
-    width: 19%;
-    bottom: 16.5%;
-    left: -1.7%;
-  }
+
   .footer {
     font-size: 7pt;
     line-height: 1.5;
