@@ -281,3 +281,33 @@ article:first-child {
   margin: 0 3px; /* 좌우로 15px씩 여백 추가 (원하는 만큼 조절하세요) */
 }
 }
+
+@media (hover: none) {
+  abbr[title] {
+    position: relative;
+    cursor: pointer; 
+    text-decoration: none; /* 기본 점선 밑줄 제거 (선택사항) */
+  }
+
+  /* 터치해서 포커스를 받았을 때 말풍선 띄우기 */
+  abbr[title]:focus::after,
+  abbr[title]:active::after {
+    content: attr(title); /* HTML의 title 속성 텍스트를 그대로 가져옴 */
+    position: absolute;
+    bottom: 150%; /* 글자 위로 띄움 */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* 기존에 설정하신 다크모드/라이트모드 변수 활용 */
+    background-color: var(--text-black); 
+    color: var(--bg-color);
+    border: 1px solid var(--line-color);
+    
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap; /* 글자가 길어도 한 줄로 표시 */
+    z-index: 100;
+    pointer-events: none; /* 말풍선 자체가 터치되는 것 방지 */
+  }
+}

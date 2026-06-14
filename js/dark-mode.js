@@ -53,3 +53,15 @@ if (typeof updateThemeByTime === 'function') {
   updateThemeByTime();
   setInterval(updateThemeByTime, 2000);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  // 화면이 터치 기기인지 확인
+  if (window.matchMedia("(hover: none)").matches) {
+    const abbrElements = document.querySelectorAll('abbr[title]');
+    
+    // 모든 abbr 태그에 tabindex="0"을 부여하여 모바일 터치 포커스를 활성화
+    abbrElements.forEach(function(abbr) {
+      abbr.setAttribute('tabindex', '0');
+    });
+  }
+});
